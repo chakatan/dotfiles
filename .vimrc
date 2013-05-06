@@ -9,7 +9,7 @@
 "  let g:vimproc_dll_path = $HOME . '.vim/bundle/vimproc/autoload/vimproc_unix.so'
 "endif
 
-" $B30It%U%!%$%kFI$_9~$_(B
+" 外部ファイル読み込み
 if filereadable(expand('~/.vimrc.local'))
 	source ~/.vimrc.local
 endif
@@ -29,7 +29,7 @@ nmap <S-j> <C-W>j
 nmap <S-k> <C-W>k
 nmap <S-l> <C-W>l
 
-" $B0J2<%W%i%0%$%s@_Dj(B
+" 以下プラグイン設定
 " neobundole
 set nocompatible               " be iMproved
 filetype plugin indent off     " required!
@@ -98,56 +98,56 @@ nnoremap [unite] <Nop>
 nmap <Space>f [unite]
 
 "unite general settings
-"$B%$%s%5!<%H%b!<%I$G3+;O(B
+"インサートモードで開始
 let g:unite_enable_start_insert = 1
-"$B:G6a3+$$$?%U%!%$%kMzNr$NJ]B8?t(B
+"最近開いたファイル履歴の保存数
 let g:unite_source_file_mru_limit = 50
 
-"file_mru$B$NI=<(%U%)!<%^%C%H$r;XDj!#6u$K$9$k$HI=<(%9%T!<%I$,9bB.2=$5$l$k(B
+"file_mruの表示フォーマットを指定。空にすると表示スピードが高速化される
 let g:unite_source_file_mru_filename_format = ''
 
-"$B8=:_3+$$$F$$$k%U%!%$%k$N%G%#%l%/%H%j2<$N%U%!%$%k0lMw!#(B
-"$B3+$$$F$$$J$$>l9g$O%+%l%s%H%G%#%l%/%H%j(B
+"現在開いているファイルのディレクトリ下のファイル一覧。
+"開いていない場合はカレントディレクトリ
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-"$B%P%C%U%!0lMw(B
+"バッファ一覧
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-"$B%l%8%9%?0lMw(B
+"レジスタ一覧
 nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
-"$B:G6a;HMQ$7$?%U%!%$%k0lMw(B
+"最近使用したファイル一覧
 nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
-"$B%V%C%/%^!<%/0lMw(B
+"ブックマーク一覧
 nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
-"$B%V%C%/%^!<%/$KDI2C(B
+"ブックマークに追加
 nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
-"unite$B$r3+$$$F$$$k4V$N%-!<%^%C%T%s%0(B
+"uniteを開いている間のキーマッピング
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()"{{{
-        "ESC$B$G(Bunite$B$r=*N;(B
+        "ESCでuniteを終了
         nmap <buffer> <ESC> <Plug>(unite_exit)
-        "$BF~NO%b!<%I$N$H$-(Bjj$B$G%N!<%^%k%b!<%I$K0\F0(B
+        "入力モードのときjjでノーマルモードに移動
         imap <buffer> jj <Plug>(unite_insert_leave)
-        "$BF~NO%b!<%I$N$H$-(Bctrl+w$B$G%P%C%/%9%i%C%7%e$b:o=|(B
+        "入力モードのときctrl+wでバックスラッシュも削除
         imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
-        "ctrl+j$B$G=D$KJ,3d$7$F3+$/(B
+        "ctrl+jで縦に分割して開く
         nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
         inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
-        "ctrl+j$B$G2#$KJ,3d$7$F3+$/(B
+        "ctrl+jで横に分割して開く
         nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
         inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
-        "ctrl+o$B$G$=$N>l=j$K3+$/(B
+        "ctrl+oでその場所に開く
         nnoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
         inoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
 endfunction"}}}
 
-" :Ref alc$B$N>e=q$-(B 
+" :Ref alcの上書き 
 let g:ref_alc2_overwrite_alc = 1
 " jquery doc
 let g:ref_jquery_doc_path = $HOME. '/public_html/repos/manual/jquery'
-" $B7k2L$K9g$o$;$F!"3+$+$l$k%&%$%s%I%&$N=D%5%$%:$rD4@a$7$^$9!#(B $B!H(B
+" 結果に合わせて、開かれるウインドウの縦サイズを調節します。 “
 let g:ref_auto_resize = 1
-" wikipedia $B$K2C$(!"1Q8lHG$G8!:w$9$k0Y$N(B wikipedia_en $B$,EPO?$5$l$^$9!#(B 
+" wikipedia に加え、英語版で検索する為の wikipedia_en が登録されます。 
 let g:ref_wikipedia_lang = ['ja', 'en']
-" $B%-%c%C%7%e$rM-8z$K$9$k(B 
+" キャッシュを有効にする 
 let g:ref_use_cache = 1
 
 " NeoCompleCash
@@ -158,12 +158,12 @@ let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_include_paths = {'phtml': 'Users/yoshida/development/ZendFramework/library'}
 let g:neocomplcache_include_paths = {'php': 'Users/yoshida/development/ZendFramework/library'}
 
-"$B%?%0Jd40(B "$B%?%0%U%!%$%k$N>l=j(B 
+"タグ補完 "タグファイルの場所 
 augroup SetTagsFile 
 	autocmd! 
 	autocmd FileType php set tags+=tags;./,/Users/yoshida/development/ZendFramework/library/tags
 augroup END 
-"$B%?%0Jd40$N8F$S=P$7%Q%?!<%s(B
+"タグ補完の呼び出しパターン
 if !exists('g:neocomplcache_member_prefix_patterns') 
 	let g:neocomplcache_member_prefix_patterns = {} 
 endif 
@@ -183,11 +183,11 @@ function! s:twitvim_my_settings()
   endfunction
 
 " Project.vim
-" $B%U%!%$%k$,A*Br$5$l$?$i!"%&%#%s%I%&$rJD$8$k(B
+" ファイルが選択されたら、ウィンドウを閉じる
 :let g:proj_flags = "imstc"
-" <Leader>P$B$G!"%W%m%8%'%/%H$r%H%0%k$G3+JD$9$k(B
+" <Leader>Pで、プロジェクトをトグルで開閉する
 :nmap <silent> ,P <Plug>ToggleProject
-" <Leader>p$B$G!"%G%U%)%k%H$N%W%m%8%'%/%H$r3+$/(B
+" <Leader>pで、デフォルトのプロジェクトを開く
 :nmap <silent> ,p :Project<CR>
 
 " tags
@@ -201,9 +201,9 @@ let Tlist_Use_Right_Window = 1
 let Tlist_Exit_OnlyWindow = 1
 
 autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
-" vim$B$K(Bcoffee$B%U%!%$%k%?%$%W$rG'<1$5$;$k(B
+" vimにcoffeeファイルタイプを認識させる
 au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
-" $B%$%s%G%s%H$r@_Dj(B
+" インデントを設定
 autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
 
 let g:quickrun_config = {}

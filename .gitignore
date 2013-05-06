@@ -1,0 +1,15 @@
+/*
+/.*
+
+!/.vimfiles
+!/.gitconfig
+!/.gitignore
+!/.tmux.conf
+!/.vimrc
+!/.zshenv
+!/.zshrc
+!/.oh-my-zsh/custom/my.zsh
+
+.DS_Store
+.svn
+

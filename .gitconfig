@@ -1,6 +1,5 @@
-[url "github:"]
-    pushInsteadOf = https://github.com/
-    pushInsteadOf = git@github.com:
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
 [user]
 	email = taka1985@gmail.com
 	name = chakatan

@@ -1,4 +1,4 @@
-sudo apt install git vim zsh powerline
+sudo apt install -y git vim zsh powerline python3 python3-venv python3-pip
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 
 
 ln -snfv dotfiles/.vimrc ~

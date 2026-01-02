@@ -10,6 +10,7 @@
 !/.zshrc
 !/.oh-my-zsh/custom/my.zsh
 !/bootstrap.sh
+!/coc-settings.json
 !/README.md
 
 .DS_Store

@@ -1,0 +1,5 @@
+{
+  "elixirLS.mixEnv": "dev",
+  "elixirLS.mixTarget": "test",
+  "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh"
+}

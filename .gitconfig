@@ -1,3 +1,6 @@
 [url "github:"]
     pushInsteadOf = https://github.com/
     pushInsteadOf = git@github.com:
+[user]
+	email = taka1985@gmail.com
+	name = chakatan

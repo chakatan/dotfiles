@@ -9,6 +9,7 @@
 !/.zshenv
 !/.zshrc
 !/.oh-my-zsh/custom/my.zsh
+!/bootstrap.sh
 
 .DS_Store
 .svn

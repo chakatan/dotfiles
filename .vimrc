@@ -1,4 +1,4 @@
-"" vimproc
+" vimproc
 "if has('mac')
 "  let g:vimproc_dll_path = $HOME.'.vim/bundle/vimproc/autoload/vimproc_mac.so'
 "elseif has('win32')
@@ -30,71 +30,55 @@ nmap wk <C-W>k
 nmap wl <C-W>l
 
 " 以下プラグイン設定
-" neobundole
-set nocompatible               " be iMproved
-filetype plugin indent off     " required!
-set runtimepath+=~/.cabal/bin/
+" vim-plug
 
-if has('vim_starting')
-set runtimepath+=~/.vim/bundle/neobundle.vim/
-call neobundle#rc(expand('~/.vim/bundle/'))
-endif
-
-"NeoBundle 'Shougo/clang_complete.git'
-"endtagcomment.vim
-NeoBundle 'JavaScript-syntax'
-NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
-NeoBundle 'Shougo/echodoc.git'
-NeoBundle 'Shougo/neobundle.vim.git'
-NeoBundle 'Shougo/neocomplcache.git'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/unite.vim.git'
-NeoBundle 'Shougo/vim-vcs.git'
-NeoBundle 'Shougo/vimfiler.git'
-NeoBundle 'Shougo/vimproc.git'
-NeoBundle 'Shougo/vimshell.git'
-NeoBundle 'Shougo/vinarise.git'
-NeoBundle 'TwitVim'
-NeoBundle 'basyura/TweetVim'
-NeoBundle 'basyura/bitly.vim'
-NeoBundle 'basyura/twibill.vim'
-NeoBundle 'dag/vim2hs.git'
-NeoBundle 'eagletmt/ghcmod-vim.git'
-NeoBundle 'eagletmt/unite-haddock.git'
-NeoBundle 'git://gist.github.com/411828.git'
-NeoBundle 'h1mesuke/unite-outline'
-NeoBundle 'kakkyz81/evervim.git'
-NeoBundle 'kana/vim-fakeclip.git'
-NeoBundle 'kana/vim-smartchr.git'
-NeoBundle 'kchmck/vim-coffee-script.git'
-NeoBundle 'leafo/moonscript-vim'
-NeoBundle 'majutsushi/tagbar.git'
-NeoBundle 'mattn/mkdpreview-vim.git'
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'mattn/zencoding-vim.git'
-NeoBundle 'mojako/ref-sources.vim'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'project.tar.gz'
-NeoBundle 'scrooloose/nerdtree.git'
-NeoBundle 'scrooloose/syntastic.git'
-NeoBundle 'taglist.vim'
-NeoBundle 'taichouchou2/alpaca_powertabline'
-NeoBundle 'thinca/vim-quickrun.git'
-NeoBundle 'thinca/vim-ref.git'
-NeoBundle 'tpope/vim-fugitive.git'
-NeoBundle 'tpope/vim-surround.git'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'ujihisa/neco-ghc.git'
-NeoBundle 'vim-jp/vital.vim.git'
-NeoBundle 'vim-scripts/VimRepress'
-NeoBundle 'vim-scripts/YankRing.vim.git'
-NeoBundle 'yuratomo/w3m.vim'
-NeoBundle 'gregsexton/gitv.git'
-NeoBundle 'kana/vim-filetype-haskell'
-NeoBundle 'osyo-manga/vim-watchdogs'
-NeoBundle 'ujihisa/ref-hoogle'
-NeoBundle 'ujihisa/unite-haskellimport'
-NeoBundle 'koron/chalice'
+call plug#begin('~/.vim/plugged')
+Plug 'powrline/powerline', { 'rtp' : 'powerline/bindings/vim'}
+Plug 'Shougo/echodoc.git'
+Plug 'Shougo/neocomplcache.git'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/unite.vim.git'
+Plug 'Shougo/vim-vcs.git'
+Plug 'Shougo/vimfiler.git'
+Plug 'Shougo/vimproc.git'
+Plug 'Shougo/vimshell.git'
+Plug 'Shougo/vinarise.git'
+Plug 'basyura/bitly.vim'
+Plug 'basyura/twibill.vim'
+Plug 'dag/vim2hs.git'
+Plug 'eagletmt/ghcmod-vim.git'
+Plug 'eagletmt/unite-haddock.git'
+Plug 'h1mesuke/unite-outline'
+Plug 'kakkyz81/evervim.git'
+Plug 'kana/vim-fakeclip.git'
+Plug 'kana/vim-smartchr.git'
+Plug 'leafo/moonscript-vim'
+Plug 'majutsushi/tagbar.git'
+Plug 'mattn/mkdpreview-vim.git'
+Plug 'mattn/webapi-vim'
+Plug 'mattn/zencoding-vim.git'
+Plug 'mojako/ref-sources.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'scrooloose/nerdtree.git'
+Plug 'scrooloose/syntastic.git'
+Plug 'taichouchou2/alpaca_powertabline'
+Plug 'thinca/vim-quickrun.git'
+Plug 'thinca/vim-ref.git'
+Plug 'tpope/vim-fugitive.git'
+Plug 'tpope/vim-surround.git'
+Plug 'tyru/open-browser.vim'
+Plug 'ujihisa/neco-ghc.git'
+Plug 'vim-jp/vital.vim.git'
+Plug 'vim-scripts/VimRepress'
+Plug 'vim-scripts/YankRing.vim.git'
+Plug 'yuratomo/w3m.vim'
+Plug 'gregsexton/gitv.git'
+Plug 'kana/vim-filetype-haskell'
+Plug 'osyo-manga/vim-watchdogs'
+Plug 'ujihisa/ref-hoogle'
+Plug 'ujihisa/unite-haskellimport'
+Plug 'koron/chalice'
+call plug#end()
 
 filetype plugin on
 filetype indent on
@@ -206,12 +190,6 @@ let Tlist_Show_One_File = 1
 let Tlist_Use_Right_Window = 1
 let Tlist_Exit_OnlyWindow = 1
 
-autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
-" vimにcoffeeファイルタイプを認識させる
-au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
-" インデントを設定
-autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
-
 let g:quickrun_config = {}
 
 " ghcmod-vim
@@ -305,3 +283,4 @@ endif
 let g:ctrlp_use_migemo = 1
 " migemo割り当て
 noremap  // :<C-u>Migemo<CR>
+

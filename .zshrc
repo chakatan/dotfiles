@@ -37,4 +37,5 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 eval "$(rbenv init -)"
 eval `ssh-agent`
+ssh-add ~/.ssh/id_ed25519
  [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator 

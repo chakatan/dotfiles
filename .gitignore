@@ -10,6 +10,7 @@
 !/.zshrc
 !/.oh-my-zsh/custom/my.zsh
 !/bootstrap.sh
+!/README.md
 
 .DS_Store
 .svn

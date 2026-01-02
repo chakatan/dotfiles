@@ -8,6 +8,8 @@
 "elseif has('unix')
 "  let g:vimproc_dll_path = $HOME . '.vim/bundle/vimproc/autoload/vimproc_unix.so'
 "endif
+" leaderをスペースへ設定
+let mapleader = "\<Space>"
 
 " 外部ファイル読み込み
 if filereadable(expand('~/.vimrc.local'))
@@ -28,6 +30,11 @@ nmap wh <C-W>h
 nmap wj <C-W>j
 nmap wk <C-W>k
 nmap wl <C-W>l
+" coc
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> <leader>co  :<C-u>CocList outline<CR>
 
 " 以下プラグイン設定
 " vim-plug
@@ -53,7 +60,7 @@ Plug 'kana/vim-smartchr'
 Plug 'majutsushi/tagbar'
 Plug 'mattn/mkdpreview-vim'
 Plug 'mattn/webapi-vim'
-Plug 'mattn/zencoding-vim'
+Plug 'mattn/emmet-vim'
 Plug 'mojako/ref-sources.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdtree'
@@ -75,11 +82,27 @@ Plug 'osyo-manga/vim-watchdogs'
 Plug 'ujihisa/ref-hoogle'
 Plug 'ujihisa/unite-haskellimport'
 Plug 'koron/chalice'
+Plug 'elixir-editors/vim-elixir'
+Plug 'mattreduce/vim-mix'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
+Plug 'prabirshrestha/vim-lsp'
+Plug 'dense-analysis/ale'
+Plug 'vim-test/vim-test'
+Plug 'kassio/neoterm'
+Plug 'junegunn/fzf'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
 call plug#end()
 
 filetype plugin on
 filetype indent on
 
+"vimtest 
+let test#strategy = "neoterm"
 "unite prefix key.
 nnoremap [unite] <Nop>
 nmap <Space>f [unite]
@@ -275,9 +298,20 @@ set fileformats=unix,dos,mac
 if exists('&ambiwidth')
   set ambiwidth=double
 endif
+"ale
+let g:ale_fixers = { 'elixir': ['mix_format'] }
 
 "migemo
 let g:ctrlp_use_migemo = 1
 " migemo割り当て
 noremap  // :<C-u>Migemo<CR>
+
+if has('nvim')
+  " neovim 限定の設定
+ vim.g.mapleader = " " 
+ vim.lsp.config('elixirls', {
+    cmd = { "~/elixir-ls/release/language_server.sh" };
+ })
+ vim.lsp.enable('elixirls')
+endif
 

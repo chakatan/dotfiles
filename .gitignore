@@ -8,6 +8,7 @@
 !/.vimrc
 !/.zshenv
 !/.zshrc
+!/coc.vim
 !/.oh-my-zsh/custom/my.zsh
 !/bootstrap.sh
 !/coc-settings.json
